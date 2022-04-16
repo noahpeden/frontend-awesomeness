@@ -8,8 +8,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { MovieContext } from '../../contexts/MovieContext';
-import { List, ListItem, CardMedia } from '@mui/material';
-
+import { List, ListItem, CardMedia, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 export default function ResponsiveDialog() {
   const {
     dialogOpen,
@@ -40,7 +40,15 @@ export default function ResponsiveDialog() {
       onClose={() => setDialogOpen(false)}
       aria-labelledby="responsive-dialog-title"
     >
-      <DialogTitle id="responsive-dialog-title">{Title}</DialogTitle>
+      <DialogTitle
+        id="responsive-dialog-title"
+        sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+      >
+        {Title}
+        <IconButton onClick={() => setDialogOpen(false)}>
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
       <DialogContent>
         <List>
           <ListItem>Year: {Year}</ListItem>
@@ -57,11 +65,6 @@ export default function ResponsiveDialog() {
           <CardMedia component="img" height="140" image={Poster} alt="movie poster" />
         </List>
       </DialogContent>
-      <DialogActions>
-        <Button autoFocus onClick={() => setDialogOpen(false)}>
-          Close
-        </Button>
-      </DialogActions>
     </Dialog>
   );
 }

@@ -26,10 +26,11 @@ export default function Home() {
         <Grid item xs={2}>
           <SideNav />
         </Grid>
-        <Grid container xs={10} spacing={5} sx={{ padding: '16px' }}>
+        <Grid container xs={10} item spacing={5} sx={{ padding: '16px' }}>
           {data.Search.map((movie) => {
             return (
               <MovieCard
+                key={movie.imdbID}
                 poster={movie.Poster}
                 title={movie.Title}
                 type={movie.Type}
