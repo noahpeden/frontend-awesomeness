@@ -1,19 +1,24 @@
-import { CircularProgress, Grid, Typography } from '@mui/material';
+import { CircularProgress, Grid, Typography, Box } from '@mui/material';
 import MovieCard from '../../components/MovieCard';
 import SideNav from '../../components/SideNav';
 import useMovieApi from '../../hooks/useMovieApi';
 
 export default function Home() {
   const { data, error, loading } = useMovieApi();
-  console.log(data, error, loading);
 
   if (loading) {
-    return <CircularProgress />;
+    return (
+      <Box sx={{ display: 'flex' }}>
+        <CircularProgress />
+      </Box>
+    );
   }
   if (error) {
-    <Typography variant="h1" color="red">
-      there has been an error: {error}{' '}
-    </Typography>;
+    <Box sx={{ display: 'flex' }}>
+      <Typography variant="h1" color="red">
+        there has been an error: {error}{' '}
+      </Typography>
+    </Box>;
   }
   if (data.Search) {
     return (

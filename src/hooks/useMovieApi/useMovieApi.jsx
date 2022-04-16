@@ -5,7 +5,7 @@ export default function useMovieApi() {
   const [status, setStatus] = useState({ error: false, loading: false, data: [] });
   const [search] = useState('super');
 
-  const fetchData = async () => {
+  async function fetchData() {
     setStatus({ ...status, loading: true });
     try {
       const response = await axios.get(
@@ -15,10 +15,11 @@ export default function useMovieApi() {
     } catch (error) {
       setStatus({ ...status, loading: false, error });
     }
-  };
+  }
 
   useEffect(() => {
     fetchData();
+    // disabling this because I really do want this to run only once and I don't need the deps array to be filled out
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
