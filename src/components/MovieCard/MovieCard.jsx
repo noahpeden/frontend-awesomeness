@@ -23,9 +23,9 @@ export default function MovieCard({ poster, title, type, year, imdbID }) {
   };
 
   return (
-    <Grid item xs={2.5}>
+    <Grid item xs={3}>
       <Card
-        sx={{ maxWidth: 345, ':hover': { cursor: 'pointer', elevation: '' } }}
+        sx={{ maxWidth: 500, ':hover': { cursor: 'pointer', elevation: '' }, height: '275px' }}
         onClick={fetchMovie}
       >
         <CardMedia component="img" height="140" image={poster} alt="movie poster" />

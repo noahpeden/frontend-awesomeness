@@ -1,9 +1,6 @@
 import { useContext } from 'react';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
@@ -62,7 +59,12 @@ export default function ResponsiveDialog() {
           <ListItem>Plot: {Plot}</ListItem>
           <ListItem>Language: {Language}</ListItem>
           <ListItem>Country: {Country}</ListItem>
-          <CardMedia component="img" height="140" image={Poster} alt="movie poster" />
+          <CardMedia
+            sx={{ maxWidth: '50%', maxHeight: 'calc(100vh - 64px)',  }}
+            component="img"
+            image={Poster}
+            alt="movie poster"
+          />
         </List>
       </DialogContent>
     </Dialog>
