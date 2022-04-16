@@ -1,30 +1,27 @@
 import { Grid } from '@mui/material';
-import Paper from '@mui/material/Paper';
+import MovieCard from '../../components/MovieCard';
 import SideNav from '../../components/SideNav';
-
-const Item = () => (
-  <Grid item xs={3}>
-    <Paper elevation={3}>Hello</Paper>
-  </Grid>
-);
+import useMovieApi from '../../hooks/useMovieApi';
 
 export default function Home() {
+  const { data, error, loading } = useMovieApi();
+  console.log(data, error, loading);
   return (
     <Grid container direction={'row'}>
       <Grid item xs={2}>
         <SideNav />
       </Grid>
-      <Grid container item xs={8} spacing={5} sx={{ padding: '16px' }}>
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+      <Grid container xs={10} spacing={5} sx={{ padding: '16px' }}>
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
       </Grid>
     </Grid>
   );
