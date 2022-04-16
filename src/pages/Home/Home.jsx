@@ -22,11 +22,17 @@ export default function Home() {
   }
   if (data.Search) {
     return (
-      <Grid container direction={'row'}>
+      <Grid container>
         <Grid item xs={2}>
           <SideNav />
         </Grid>
-        <Grid container xs={10} item spacing={5} sx={{ padding: '16px' }}>
+        <Grid
+          container
+          xs={10}
+          item
+          spacing={3}
+          sx={{ padding: '16px', display: 'flex', justifyContent: 'center' }}
+        >
           {data.Search.map((movie) => {
             return (
               <MovieCard
