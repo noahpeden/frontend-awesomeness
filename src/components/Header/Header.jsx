@@ -18,6 +18,7 @@ export default function Header() {
         width: { sm: `calc(100% - ${drawerWidth}px)` },
         ml: { sm: `$23px` },
       }}
+      data-testid="header-test"
     >
       <Toolbar>
         <IconButton
@@ -25,6 +26,7 @@ export default function Header() {
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
+          data-testid="drawer-open-button-test"
           sx={{ mr: 2, display: { sm: 'none' } }}
         >
           <MenuIcon />

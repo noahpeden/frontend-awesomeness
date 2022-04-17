@@ -8,6 +8,7 @@ export default function Home() {
   const { data, error, loading, fetchData } = useMovieApi();
   useEffect(() => {
     fetchData({ search: 'super', param: 's' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {

@@ -32,17 +32,17 @@ export default function ResponsiveDialog() {
 
   return (
     <Dialog
+      data-testid="MovieDialog-test"
       fullScreen={fullScreen}
       open={dialogOpen}
       onClose={() => setDialogOpen(false)}
-      aria-labelledby="responsive-dialog-title"
     >
       <DialogTitle
         id="responsive-dialog-title"
         sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
       >
         {Title}
-        <IconButton onClick={() => setDialogOpen(false)}>
+        <IconButton onClick={() => setDialogOpen(false)} data-testid="close-dialog-test">
           <CloseIcon />
         </IconButton>
       </DialogTitle>
