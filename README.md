@@ -16,7 +16,7 @@ I had a lot of fun with this! A couple of points I'd like to go over:
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, after cloning the repository you can run:
 
 ### `npm start`
 
