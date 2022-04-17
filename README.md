@@ -1,7 +1,6 @@
 # Noah Peden's True Link FE Exercise
 I had a lot of fun with this! A couple of points I'd like to go over: 
-- I used MUI for the design system and relied on the docs a lot for the responsive drawer and grid system. It was a great learning experience. 
-- I probably spent too much time messing with MUI, but I wanted it to look nice, and I know I could do it a lot quicker with just using `@emotion/react` or `styled-components` aka plain SCSS. 
+- I used MUI for the design system.
 - I unit tested every component using React Testing Library. I feel pretty confident in the tests I wrote, but left two "to do's" with two things that I thought were trivial and could be figured out later
 - I created the `useMovieApi` hook so that I could have access to a reusable piece of logic to call the OMDBAPI which also had loading and error states (I love that out of the box functionality with `useQuery` from Apollo and wanted to recreate it).
 - For state in between components, I used Context, and created three small pieces of state: `dialogOpen` for opening up a Movie Card, `movieData` for passing the data to the dialog on click of a card, and `mobileOpen` for handling when the side nav would be open or closed in mobile 
