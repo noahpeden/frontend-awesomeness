@@ -62,7 +62,7 @@ and change the hamburger icon to `X`.
 - [ ] Clicking on the `X` icon closes the static menu bar and displays the movie gallery again
 
 ### Accessibility
-- I used MUI's color picker to choose blues and whites that wouldn't contrast too much with large (> 16px):
+- I used MUI's accessibility color picker to choose blues and whites that wouldn't contrast too much with large text (> 16px):
 <img width="1196" alt="Screen Shot 2022-04-15 at 8 44 55 PM" src="https://user-images.githubusercontent.com/15061527/163726988-277c7a35-f528-466c-9af8-5bb5c68189be.png">
 
 #### WAVE (accessibility extension) check:
