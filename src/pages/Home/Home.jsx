@@ -1,11 +1,10 @@
-import { CircularProgress, Grid, Typography, Box, useMediaQuery } from '@mui/material';
+import { CircularProgress, Grid, Typography, Box, } from '@mui/material';
 import MovieCard from '../../components/MovieCard';
 import SideNav from '../../components/SideNav';
 import useMovieApi from '../../hooks/useMovieApi';
 
 export default function Home() {
   const { data, error, loading } = useMovieApi();
-  const isMobile = useMediaQuery('(max-width:600px)');
 
   if (loading) {
     return (
@@ -21,33 +20,35 @@ export default function Home() {
       </Typography>
     </Box>;
   }
-  if (data.Search) {
+  if (data?.Search) {
     return (
-      <Grid container>
-        <Grid item xs={2}>
+      <Box sx={{ display: 'flex', mt: '75px' }}>
+        <Box component="nav" sx={{ width: { sm: '240px' }, flexShrink: { sm: 0 } }}>
           <SideNav />
-        </Grid>
-        <Grid
-          container
-          xs={10}
-          item
-          spacing={3}
-          sx={{ padding: '16px', display: 'flex', justifyContent: 'center' }}
+        </Box>
+        <Box
+          component="main"
+          sx={{
+            p: 3,
+            width: { sm: `calc(100% - 240px)` },
+          }}
         >
-          {data.Search.map((movie) => {
-            return (
-              <MovieCard
-                key={movie.imdbID}
-                poster={movie.Poster}
-                title={movie.Title}
-                type={movie.Type}
-                year={movie.Year}
-                imdbID={movie.imdbID}
-              />
-            );
-          })}
-        </Grid>
-      </Grid>
+          <Grid container spacing={{ xs: 2, md: 3 }}>
+            {data.Search.map((movie) => {
+              return (
+                <MovieCard
+                  key={movie.imdbID}
+                  poster={movie.Poster}
+                  title={movie.Title}
+                  type={movie.Type}
+                  year={movie.Year}
+                  imdbID={movie.imdbID}
+                />
+              );
+            })}
+          </Grid>
+        </Box>
+      </Box>
     );
   }
 }

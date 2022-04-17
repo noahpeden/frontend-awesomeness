@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { MovieContext } from '../../contexts/MovieContext';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import { useMediaQuery } from '@mui/material';
+import { Grid, useMediaQuery } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -54,45 +54,47 @@ export default function SideNav() {
   };
 
   return (
-    <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
-      <Drawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile according to docs
-        }}
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-        }}
-      >
-        {isMobile && (
-          <DrawerHeader>
-            <IconButton onClick={handleDrawerToggle}>
-              <CloseIcon />
-            </IconButton>
-          </DrawerHeader>
-        )}
-        <DrawerContent />
-      </Drawer>
-      <Drawer
-        variant="permanent"
-        sx={{
-          display: { xs: 'none', sm: 'block' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-        }}
-        open
-      >
-        {isMobile && (
-          <DrawerHeader>
-            <IconButton onClick={handleDrawerToggle}>
-              <CloseIcon />
-            </IconButton>
-          </DrawerHeader>
-        )}
-        <DrawerContent />
-      </Drawer>
-    </Box>
+    <Grid item xs={3}>
+      <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile according to docs
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {isMobile && (
+            <DrawerHeader>
+              <IconButton onClick={handleDrawerToggle} sx={{ color: '#FFFFFF' }}>
+                <CloseIcon color="white" />
+              </IconButton>
+            </DrawerHeader>
+          )}
+          <DrawerContent />
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: 'none', sm: 'block' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+          open
+        >
+          {isMobile && (
+            <DrawerHeader>
+              <IconButton onClick={handleDrawerToggle} sx={{ color: '#FFFFFF' }}>
+                <CloseIcon />
+              </IconButton>
+            </DrawerHeader>
+          )}
+          <DrawerContent />
+        </Drawer>
+      </Box>
+    </Grid>
   );
 }

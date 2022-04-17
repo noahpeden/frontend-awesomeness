@@ -1,13 +1,12 @@
+import { useContext } from 'react';
+import axios from 'axios';
+import { MovieContext } from '../../contexts/MovieContext';
+import MovieDialog from '../MovieDialog';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import axios from 'axios';
-import { useContext, useState } from 'react';
-import { MovieContext } from '../../contexts/MovieContext';
-import MovieDialog from '../MovieDialog';
-import { CardActionArea, useMediaQuery } from '@mui/material';
+import { CardActionArea, Grid, useMediaQuery } from '@mui/material';
 
 export default function MovieCard({ poster, title, type, year, imdbID }) {
   const { setMovieData, setDialogOpen } = useContext(MovieContext);
@@ -22,16 +21,12 @@ export default function MovieCard({ poster, title, type, year, imdbID }) {
       console.log(error);
     }
   };
-
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
-    <Grid item xs={isMobile ? 10 : 4}>
+    <Grid item xs={isMobile ? 12 : 4}>
       <CardActionArea>
-        <Card
-          sx={{ maxWidth: 500, ':hover': { cursor: 'pointer', elevation: '' }, height: '275px' }}
-          onClick={fetchMovie}
-        >
+        <Card sx={{ maxWidth: 500, height: '275px' }} onClick={fetchMovie}>
           <CardMedia component="img" height="140" image={poster} alt="movie poster" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
