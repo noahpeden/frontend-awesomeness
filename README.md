@@ -61,6 +61,16 @@ outside of it.
 and change the hamburger icon to `X`.
 - [ ] Clicking on the `X` icon closes the static menu bar and displays the movie gallery again
 
+### Accessibility
+- I used MUI's color picker to choose blues and whites that wouldn't contrast too much with large (> 16px):
+<img width="1196" alt="Screen Shot 2022-04-15 at 8 44 55 PM" src="https://user-images.githubusercontent.com/15061527/163726988-277c7a35-f528-466c-9af8-5bb5c68189be.png">
+
+#### WAVE (accessibility extension) check:
+No errors!!! Yay.
+![Screen Shot 2022-04-17 at 2 09 21 PM](https://user-images.githubusercontent.com/15061527/163727016-dd1bacb2-cf77-450c-ae53-d511fdb40ade.png)
+
+
+
 
 ### Outstanding To Do's
 - [ ] I feel like a smoother transition from 3 movie cards to one would be to show 2 at 800px or something, but I left it as a to do
