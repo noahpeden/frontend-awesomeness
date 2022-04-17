@@ -1,10 +1,11 @@
-import { CircularProgress, Grid, Typography, Box } from '@mui/material';
+import { CircularProgress, Grid, Typography, Box, useMediaQuery } from '@mui/material';
 import MovieCard from '../../components/MovieCard';
 import SideNav from '../../components/SideNav';
 import useMovieApi from '../../hooks/useMovieApi';
 
 export default function Home() {
   const { data, error, loading } = useMovieApi();
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   if (loading) {
     return (
