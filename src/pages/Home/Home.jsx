@@ -14,16 +14,18 @@ export default function Home() {
   if (loading) {
     return (
       <Box sx={{ display: 'flex' }}>
-        <CircularProgress />
+        <CircularProgress data-testid="home-loading-test" />
       </Box>
     );
   }
   if (error) {
-    <Box sx={{ display: 'flex' }}>
-      <Typography variant="h1" color="red">
-        there has been an error: {error}{' '}
-      </Typography>
-    </Box>;
+    return (
+      <Box sx={{ display: 'flex' }}>
+        <Typography variant="h1" color="red">
+          there has been an error: {error}
+        </Typography>
+      </Box>
+    );
   }
   if (data?.Search) {
     return (

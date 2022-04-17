@@ -8,32 +8,9 @@ import { useContext } from 'react';
 import { MovieContext } from '../../contexts/MovieContext';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import { Grid, useMediaQuery } from '@mui/material';
-
+import Grid from '@mui/material/Grid';
+import useMediaQuery from '@mui/material/useMediaQuery';
 const drawerWidth = 240;
-
-const DrawerContent = () => {
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-
-        paddingTop: '40px',
-        justifyContent: 'flex-start',
-        backgroundColor: '#0068bf',
-        height: '100vh',
-      }}
-    >
-      <List sx={{ width: '100%' }}>
-        {['Menu 1', 'Menu 2', 'Menu 3', 'Menu 4', 'Menu 5', 'Menu 6', 'Menu 7'].map((text) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} sx={{ color: 'white' }} />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-};
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -47,8 +24,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function SideNav() {
   const isMobile = useMediaQuery('(max-width:600px)');
-
   const { mobileOpen, setMobileOpen } = useContext(MovieContext);
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -57,6 +34,7 @@ export default function SideNav() {
     <Grid item xs={3}>
       <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
         <Drawer
+          data-testid="DrawerComponent-test"
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
@@ -70,12 +48,35 @@ export default function SideNav() {
         >
           {isMobile && (
             <DrawerHeader>
-              <IconButton onClick={handleDrawerToggle} sx={{ color: '#FFFFFF' }}>
+              <IconButton
+                data-testid="close-drawer-test"
+                onClick={handleDrawerToggle}
+                sx={{ color: '#FFFFFF' }}
+              >
                 <CloseIcon color="white" />
               </IconButton>
             </DrawerHeader>
           )}
-          <DrawerContent />
+          <Box
+            sx={{
+              display: 'flex',
+
+              paddingTop: '40px',
+              justifyContent: 'flex-start',
+              backgroundColor: '#0068bf',
+              height: '100vh',
+            }}
+          >
+            <List sx={{ width: '100%' }}>
+              {['Menu 1', 'Menu 2', 'Menu 3', 'Menu 4', 'Menu 5', 'Menu 6', 'Menu 7'].map(
+                (text) => (
+                  <ListItem button key={text}>
+                    <ListItemText primary={text} sx={{ color: 'white' }} />
+                  </ListItem>
+                )
+              )}
+            </List>
+          </Box>{' '}
         </Drawer>
         <Drawer
           variant="permanent"
@@ -87,12 +88,35 @@ export default function SideNav() {
         >
           {isMobile && (
             <DrawerHeader>
-              <IconButton onClick={handleDrawerToggle} sx={{ color: '#FFFFFF' }}>
+              <IconButton
+                data-testid="close-drawer-test"
+                onClick={handleDrawerToggle}
+                sx={{ color: '#FFFFFF' }}
+              >
                 <CloseIcon />
               </IconButton>
             </DrawerHeader>
           )}
-          <DrawerContent />
+          <Box
+            sx={{
+              display: 'flex',
+
+              paddingTop: '40px',
+              justifyContent: 'flex-start',
+              backgroundColor: '#0068bf',
+              height: '100vh',
+            }}
+          >
+            <List sx={{ width: '100%' }}>
+              {['Menu 1', 'Menu 2', 'Menu 3', 'Menu 4', 'Menu 5', 'Menu 6', 'Menu 7'].map(
+                (text) => (
+                  <ListItem button key={text}>
+                    <ListItemText primary={text} sx={{ color: 'white' }} />
+                  </ListItem>
+                )
+              )}
+            </List>
+          </Box>
         </Drawer>
       </Box>
     </Grid>
