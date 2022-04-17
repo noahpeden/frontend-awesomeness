@@ -6,23 +6,21 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, Grid, useMediaQuery } from '@mui/material';
+import { CardActionArea, CircularProgress, Grid, useMediaQuery } from '@mui/material';
+import useMovieApi from '../../hooks/useMovieApi/useMovieApi';
 
 export default function MovieCard({ poster, title, type, year, imdbID }) {
   const { setMovieData, setDialogOpen } = useContext(MovieContext);
+  const { fetchData } = useMovieApi();
   const fetchMovie = async () => {
-    try {
-      const response = await axios.get(
-        `http://www.omdbapi.com/?i=${imdbID}&apikey=${process.env.REACT_APP_OMDBAPI_KEY}`
-      );
-      setMovieData(response.data);
+    const data = await fetchData({ param: 'i', search: imdbID });
+    if (data) {
+      setMovieData(data);
       setDialogOpen(true);
-    } catch (error) {
-      console.log(error);
     }
   };
-  const isMobile = useMediaQuery('(max-width:600px)');
 
+  const isMobile = useMediaQuery('(max-width:600px)');
   return (
     <Grid item xs={isMobile ? 12 : 4}>
       <CardActionArea>

@@ -1,10 +1,14 @@
-import { CircularProgress, Grid, Typography, Box, } from '@mui/material';
+import { CircularProgress, Grid, Typography, Box } from '@mui/material';
+import { useEffect } from 'react';
 import MovieCard from '../../components/MovieCard';
 import SideNav from '../../components/SideNav';
 import useMovieApi from '../../hooks/useMovieApi';
 
 export default function Home() {
-  const { data, error, loading } = useMovieApi();
+  const { data, error, loading, fetchData } = useMovieApi();
+  useEffect(() => {
+    fetchData({ search: 'super', param: 's' });
+  }, []);
 
   if (loading) {
     return (
