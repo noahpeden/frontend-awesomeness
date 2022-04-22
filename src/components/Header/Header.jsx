@@ -17,6 +17,7 @@ export default function Header() {
       sx={{
         width: { sm: `calc(100% - ${drawerWidth}px)` },
         ml: { sm: `$23px` },
+        backgroundColor: '#2195f2',
       }}
       data-testid="header-test"
     >

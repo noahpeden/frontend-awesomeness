@@ -28,7 +28,7 @@ export default function MovieCard({ poster, title, year, imdbID }) {
           sx={{ maxWidth: 500, height: '275px' }}
           onClick={fetchMovie}
         >
-          <CardMedia component="img" height="140" image={poster} alt="movie poster" />
+          <CardMedia component="img" height="140" image={poster} alt={`${title} poster`} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {title}
