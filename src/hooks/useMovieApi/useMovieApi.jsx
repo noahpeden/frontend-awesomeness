@@ -1,8 +1,12 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
 
 export function useMovieApi() {
-  const [status, setStatus] = useState({ error: false, loading: false, data: [] });
+  const [status, setStatus] = useState({
+    error: false,
+    loading: false,
+    data: [],
+  });
 
   async function fetchData({ search, param }) {
     setStatus({ ...status, loading: true });
@@ -11,14 +15,12 @@ export function useMovieApi() {
       response = await axios.get(
         `http://www.omdbapi.com/?${param}=${search}&apikey=${process.env.REACT_APP_OMDBAPI_KEY}`
       );
-      setStatus({ ...status, loading: false, data: response.data });
-      response = response.data;
     } catch (error) {
       setStatus({ ...status, loading: false, error });
-      response = error;
+    } finally {
+      setStatus({ ...status, loading: false, data: response.data });
     }
-
-    return response;
+    return response.data;
   }
 
   return { ...status, fetchData };
