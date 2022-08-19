@@ -23,7 +23,6 @@ export default function Header() {
   };
   const fetchSearched = async () => {
     const response = await fetchData({ param: "t", search });
-    console.log(response);
     if (response) {
       if (response.Error) {
         setMovieData({ error: response.Error });
@@ -67,7 +66,6 @@ export default function Header() {
               color: "white",
             },
           }}
-          color="success"
           placeholder="search for a movie"
           onChange={(e) => setSearch(e.target.value)}
           value={search}
