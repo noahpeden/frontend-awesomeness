@@ -1,5 +1,5 @@
-# Noah Peden's True Link FE Exercise
-I had a lot of fun with this! A couple of points I'd like to go over: 
+# Noah Peden's  FE Exercise
+A couple of points I'd like to go over: 
 - I used MUI for the design system, the `Grid` component for the Card layout, and the Drawer for the responsive side nav feature. I wasn't incredibly familiar with Grid and Drawer before this exercise so it was an awesome learning experience.
 - I unit tested every component using React Testing Library. I feel pretty confident in the tests I wrote, but left two "to do's" with two things that I thought were trivial and could be figured out later
 - I created the `useMovieApi` hook so that I could have access to a reusable piece of logic to call the OMDBAPI which also had loading and error states (I love that out of the box functionality with `useQuery` from Apollo and wanted to recreate it).
@@ -11,7 +11,7 @@ I had a lot of fun with this! A couple of points I'd like to go over:
 ![startup](https://user-images.githubusercontent.com/15061527/163726128-d498fc1e-9233-4548-9fa4-60bd33ee19a7.gif)
 
 
-# Getting Started with True Link FE
+# Getting Started 
 
 ## Available Scripts
 
