@@ -1,5 +1,8 @@
 # Noah Peden's  FE Exercise
-A couple of points I'd like to go over: 
+## Overview
+This was a project I did over the course of 5-7 hours following very specific acceptance criteria to demonstrate that I am capable of building a full fledged frontend web-app that is mobile friendly, unit tested, and accessible. The acceptance criteria and instructions on how to run the app are below.
+
+## A couple notes: 
 - I used MUI for the design system, the `Grid` component for the Card layout, and the Drawer for the responsive side nav feature. I wasn't incredibly familiar with Grid and Drawer before this exercise so it was an awesome learning experience.
 - I unit tested every component using React Testing Library. I feel pretty confident in the tests I wrote, but left two "to do's" with two things that I thought were trivial and could be figured out later
 - I created the `useMovieApi` hook so that I could have access to a reusable piece of logic to call the OMDBAPI which also had loading and error states (I love that out of the box functionality with `useQuery` from Apollo and wanted to recreate it).
